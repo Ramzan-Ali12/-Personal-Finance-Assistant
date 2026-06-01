@@ -48,6 +48,7 @@ class LLMClient:
             "Authorization": f"Bearer {self._api_key}",
             "Content-Type": "application/json",
         }
+        print("headers", headers)
         # OpenRouter likes these for attribution; harmless elsewhere.
         if "openrouter" in self._base_url:
             headers["HTTP-Referer"] = "http://localhost"
@@ -73,12 +74,14 @@ class LLMClient:
             "temperature": temperature,
             "max_tokens": max_tokens,
         }
+        print("payload", payload)
         async with httpx.AsyncClient(timeout=timeout) as client:
             resp = await client.post(
                 f"{self._base_url}/chat/completions",
                 headers=self._headers(),
                 json=payload,
             )
+            print("resp", resp)
             resp.raise_for_status()
             data = resp.json()
         return data["choices"][0]["message"]["content"] or ""

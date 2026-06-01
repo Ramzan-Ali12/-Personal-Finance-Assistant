@@ -43,27 +43,7 @@ genuinely adds value (agentic reasoning, vision, phrasing).
 
 ## 2. Architecture
 
-```mermaid
-flowchart TD
-    UI["React + Vite + Tailwind<br/>Chat · Transactions · Budgets · Receipt upload"]
-    API["FastAPI (async)<br/>JWT auth · /chat · /transactions · /budgets · /receipts · /import · /context"]
-    ROUTER["Query Router (core)<br/>cheap rule classifier → escalate to LLM only if unsure"]
-    SQL["SQL handler<br/>aggregations · no LLM · instant"]
-    RAG["RAG handler<br/>pgvector top-k → summarise"]
-    AGENT["Agent handler<br/>subscriptions · anomalies · budgets · cutbacks · merchant lookup"]
-    VISION["Vision handler<br/>receipt extraction"]
-    MEM["UserContext memory<br/>injected as system-prompt prefix"]
-    DB["PostgreSQL + pgvector<br/>users · transactions · budgets · context · embeddings"]
-    LLM["LLM layer (provider-agnostic)<br/>OpenRouter / OpenAI-compatible / mock fallback"]
-    WEB["Web search tool<br/>unknown-merchant lookup (optional)"]
-
-    UI --> API --> ROUTER
-    ROUTER --> SQL & RAG & AGENT & VISION
-    MEM -.injected.-> ROUTER
-    SQL & RAG & AGENT & VISION --> DB
-    AGENT --> WEB
-    RAG & AGENT & VISION & SQL -.phrasing.-> LLM
-```
+![Personal Finance Assistant — system architecture](docs/personal_finance_assistant_architecture.svg)
 
 The router is the heart of the system. A **fast keyword classifier** runs on
 every message (sub-millisecond, zero cost) and only escalates to a cheap LLM
