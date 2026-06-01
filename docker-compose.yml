@@ -1,0 +1,17 @@
+# OPTIONAL convenience: run Postgres + pgvector in a container.
+# The project targets a *local Postgres*; use this only if you'd rather not
+# install Postgres/pgvector yourself. Matches the default DATABASE_URL.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: finance
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

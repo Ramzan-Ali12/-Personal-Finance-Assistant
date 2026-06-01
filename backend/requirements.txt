@@ -1,0 +1,30 @@
+# --- Web framework / server ---
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.17        # multipart form parsing (receipt uploads)
+
+# --- Database (async Postgres + pgvector) ---
+sqlmodel==0.0.22
+sqlalchemy[asyncio]==2.0.36
+asyncpg==0.30.0
+# pgvector optional — embeddings stored as JSON by default (works without the extension)
+alembic==1.14.0
+
+# --- Auth (commodity, self-contained) ---
+python-jose[cryptography]==3.3.0
+bcrypt==4.2.1
+
+# --- Config / validation ---
+pydantic==2.10.3
+pydantic-settings==2.6.1
+email-validator==2.2.0
+
+# --- LLM / HTTP (provider-agnostic: OpenRouter / OpenAI-compatible) ---
+httpx==0.28.1
+
+# --- Tests ---
+pytest==8.3.4
+pytest-asyncio==0.24.0
+
+# --- Database ---
+asyncpg==0.30.0

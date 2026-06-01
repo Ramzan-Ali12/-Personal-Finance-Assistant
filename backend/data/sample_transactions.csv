@@ -1,0 +1,19 @@
+Date,Description,Merchant,Amount,Category
+2026-05-01,Direct deposit salary,Acme Corp Payroll,4200.00,income
+2026-05-01,Monthly rent,Skyline Property Mgmt,-1500.00,rent
+2026-05-02,Monthly subscription,Netflix,-15.49,
+2026-05-02,Monthly subscription,Spotify,-10.99,
+2026-05-03,Groceries,Whole Foods Market,"-86.40",groceries
+2026-05-03,Groceries,Whole Foods Market,"-86.40",groceries
+2026-05-04,Coffee,Starbucks,-5.25,
+2026-05-05,Fuel,Shell Gas,(48.10),
+2026-05-06,Online order,Amazon,"-129.99",
+05/08/2026,Lunch,Chipotle,-12.40,dining
+2026-05-09,,,,
+2026-05-10,Pharmacy pickup,CVS Pharmacy,,health
+2026-05-12,Electronics,Best Buy,"-1,899.00",shopping
+2026-05-14,Unknown card charge,SQH*UNKNOWN-MERCHANT,-640.00,
+2026-05-15,Refund,Amazon,52.10,income
+2026-05-18,Dinner,Local Diner,-34.20,dining
+2026-05-20,Gym membership,PlanetFitness Gym,-24.99,health
+2026-05-22,Rideshare,Uber,-18.75,transport
